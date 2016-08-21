@@ -2,15 +2,16 @@
     header('Content-Type: text/html; charset=utf-8');
     include "integer.php";
     
-    $dbhandle = mysql_connect($hostname, $username, $password) or die("Greier ikke koble til mysql");
-    mysql_set_charset('utf8',$dbhandle);
-    $selected = mysql_select_db("bzl_no", $dbhandle) or die("kunne ikke velge database");
-    $skole = mysql_real_escape_string($_GET['skole']);
-    $studie = mysql_real_escape_string($_GET['studie']);
-    $review = mysql_real_escape_string($_GET['review']);
-    $score = mysql_real_escape_string($_GET['score']);
+    $dbhandle = mysqli_connect($hostname, $username, $password, "bzl_no") or die("Greier ikke koble til mysql");
+    mysqli_set_charset($dbhandle, "utf8");
+
+    $skole = mysqli_real_escape_string($dbhandle,$_GET['skole']);
+    $studie = mysqli_real_escape_string($dbhandle,$_GET['studie']);
+    $review = mysqli_real_escape_string($dbhandle,$_GET['review']);
+    $score = mysqli_real_escape_string($dbhandle,$_GET['score']);
     
     $query = "INSERT INTO reviews (skole,studie,review,score) VALUES ('$skole','$studie','$review','$score')";
-    $result = mysql_query($query);
-
+    $result = mysqli_query($dbhandle, $query);
+	
+	mysqli_close($dbhandle);
 ?>
