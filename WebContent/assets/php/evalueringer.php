@@ -12,7 +12,7 @@
     $result = mysqli_query($dbhandle, $query);
 
     while ($row = mysqli_fetch_array($result)) {
-        echo "<li>" . $row{'review'} . "</li>";
+        echo "<li>" . htmlspecialchars($row{'review'}, ENT_QUOTES, 'UTF-8') . "</li>";
     }
 	
 	mysqli_close($dbhandle);
