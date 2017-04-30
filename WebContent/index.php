@@ -49,7 +49,7 @@ echo 	'<meta charset="utf-8">' .
 		<p align="center">
 			Created by <span id="author"> </span>, 
 			<button type="button" onclick="showGitHub()">Skift navn:</button><a id="GitHub"
-				href="https://github.com/bzl/skolen/tree/master/info100/info100lab2z">GitHub</a>
+				href="https://github.com/bzl/MittStudium">GitHub</a>
 		</p>
 	</footer>
 
