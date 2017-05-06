@@ -11,7 +11,7 @@
     $result = mysqli_query($dbhandle, $query);
     
     while ($row = mysqli_fetch_array($result)) {
-        echo "<option>" . $row{'studie'} . "</option>";
+        echo "<option>" . htmlspecialchars($row{'studie'}, ENT_QUOTES, 'UTF-8') . "</option>";
     }
 	
 #	mysqli_close($dbhandle);
