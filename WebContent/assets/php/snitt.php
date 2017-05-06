@@ -12,7 +12,7 @@
         echo '<tr> <td class="skole">' 
       		. $row{'skole'} 
        		. '</td> <td class="studie">' 
-      		. $row{'studie'} 
+      		. htmlspecialchars($row{'studie'}, ENT_QUOTES, 'UTF-8')
         	. '</td> <td class="score">' 
         	. $row{'snitt'} 
 			. '</td> <td class="goodbad">' 
