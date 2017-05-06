@@ -8,8 +8,12 @@ function submitReview(){
 	var review = "\"" + reviewText + "\" - " + reviewAuthor;
 	
 	var score = $("#score").val();
+	var cleanScore = 0;
+	if($.isNumeric(score)){
+		cleanScore = score;
+	}
 
-	var url = encodeURI("assets/php/leggTilEvaluering.php?skole=" + valgtSkole + "&studie=" + valgtStudie + "&review=" + review + "&score=" + score);
+	var url = encodeURI("assets/php/leggTilEvaluering.php?skole=" + valgtSkole + "&studie=" + valgtStudie + "&review=" + review + "&score=" + cleanScore);
 	var content;
 	
 	$.ajax({
